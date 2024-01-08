@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-python-app-deployment
+  name: web-application-deployment
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels:
-      app: web-application-deployment
+      app: web-application
   template:
     metadata:
       labels:
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: web-application
-        image: staplesadvembed.azurecr.io/staplesadvembed
+        image: staplesadvembed.azurecr.io/staplesadvembed:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
